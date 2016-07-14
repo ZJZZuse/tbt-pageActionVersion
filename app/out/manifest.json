@@ -1,0 +1,50 @@
+{
+
+  "name": "淘宝试用",
+  "version": "0.2.0",
+  "manifest_version": 2,
+
+  "content_scripts": [
+
+
+    {
+      "matches": [
+        "https://try.taobao.com/list.htm*","https://shishi.taobao.com/item/list.htm*","*://*.com/tryshop.htm*"
+      ],
+      "js": [
+        "jquery.min.js",
+        "async.js",
+        "myLib.js"
+      ],
+      "run_at":"document_end"
+    },
+
+    {
+      "matches": [
+        "https://try.taobao.com/*","https://shishi.taobao.com/*"
+      ],
+      "js": [
+        "main.js"
+      ],
+      "run_at":"document_end"
+    },
+    {
+      "matches": [
+        "*://*.com/tryshop.htm*"
+      ],
+      "js": [
+        "certainPage.js"
+      ],
+      "run_at":"document_end"
+    }
+  ],
+  //  "key": "publicKey",
+  "permissions": [
+//    "background",
+//    "http://*/*",
+//    "https://*/*"
+
+
+  ],
+  "requirements": {}
+}  

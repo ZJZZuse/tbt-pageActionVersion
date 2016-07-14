@@ -1,0 +1,74 @@
+{
+  // 必须的字段
+  "name": "tb try",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  // 建议提供的字段
+  //"description": "A plain text description",
+  //"icons": { },
+  //"default_locale": "en",
+  // 多选一，或者都不提供
+  //"browser_action": {},
+  //"page_action": {},
+  //"theme": {},
+  //"app": {},
+  // 根据需要提供
+
+//  "background": {
+//    "scripts": ["background.js"]
+//  },
+
+  "content_scripts": [
+//    {
+//      "matches": [
+//        "https://*/*"
+//      ],
+//      "js": [
+//        "jquery.min.js",
+//        "async.js",
+//        "myCommonToolsZ.js"
+//      ]
+//    },
+
+    {
+      "matches": [
+        "https://try.taobao.com/list.htm*","https://shishi.taobao.com/item/list.htm*","*://*.com/tryshop.htm*"
+      ],
+      "js": [
+        "jquery.min.js",
+        "async.js",
+        "myCommonToolsZ.js",
+        "myCommonUITools.js"
+      ],
+      "run_at":"document_end"
+    },
+
+    {
+      "matches": [
+        "https://try.taobao.com/*","https://shishi.taobao.com/*"
+      ],
+      "js": [
+        "mainListContent.js"
+      ],
+      "run_at":"document_end"
+    },
+    {
+      "matches": [
+        "*://*.com/tryshop.htm*"
+      ],
+      "js": [
+        "certainItemContent.js"
+      ],
+      "run_at":"document_end"
+    }
+  ],
+  //  "key": "publicKey",
+  "permissions": [
+//    "background",
+//    "http://*/*",
+//    "https://*/*"
+
+
+  ],
+  "requirements": {}
+}  
